@@ -1,0 +1,75 @@
+{
+	"name": "node-dockers-v1",
+	"version": "1.0.0",
+	"description": "node-dockers-v1",
+	"artifactType": "TEST",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "(. ./scripts/variables_entorno.sh && jest test/pruebasUnitarias --detectOpenHandles)",
+		"test:coverage": "(. ./scripts/variables_entorno.sh && jest test/pruebasUnitarias --collectCoverage --detectOpenHandles)",
+		"start": "node src/index.js",
+		"dev": "(. ./scripts/variables_entorno.sh && nodemon --inspect src/index.js | pino-pretty -t)",
+		"debug": "(. ./scripts/variables_entorno.sh && nodemon --inspect src/index.js | pino-pretty -t)",
+		"eslint": "./node_modules/.bin/eslint ./src --max-warnings=0",
+		"bff-docs": "npx redoc-cli bundle -o creditos-web-bff-documentation.html swagger.json"
+	},
+	"author": "Washington Guajardo Salinas <wguajardo@gmail.com>",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"express": "~4.17.1",
+		"express-async-errors": "~3.1.1",
+		"express-validator": "^6.10.0",
+		"helmet": "~3.21.2",
+		"jsonwebtoken": "^8.5.1",
+		"moment": "^2.29.1",
+		"mssql": "^7.1.0",
+		"node-logger": "0.0.1",
+		"pino-pretty": "^4.7.1",
+		"redoc": "^2.0.0-rc.53",
+		"swagger-ui-express": "^4.1.6",
+		"winston": "^3.3.3"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.13.15",
+		"@babel/node": "^7.13.13",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.9.0",
+		"eslint-config-xo": "^0.27.2",
+		"eslint-plugin-prettier": "^3.1.2",
+		"prettier": "^1.19.1",
+		"pre-commit": "^1.2.2",
+		"nodemon": "^2.0.7",
+		"husky": "^5.0.9",
+		"jest": "^26.6.3",
+		"eslint-plugin-jest": "^24.3.2",
+		"express-validator": "^6.10.0",
+		"@commitlint/cli": "^11.0.0",
+		"@commitlint/config-conventional": "^11.0.0"
+	},
+	"jest": {
+		"coveragePathIgnorePatterns": [
+			"node_modules",
+			"global",
+			"parseConfig",
+			"commons"
+		]
+	},
+	"eslintConfig": {
+		"extends": [
+			"xo",
+			"prettier"
+		],
+		"env": {
+			"node": true,
+			"mocha": true
+		},
+		"rules": {
+			"prettier/prettier": "error"
+		},
+		"plugins": [
+			"prettier"
+		]
+	}
+}
